@@ -1,0 +1,173 @@
+PROJECT: AI Vanguard — Invite-Only Mastermind Landing Page
+TYPE: Direct-response single-CTA conversion page
+SLUG: ai-vanguard
+PARENT/SIBLING: superhero-ai (built, stays live as v1 reference)
+
+──────────────────────────────────────────────────────────────────
+WHY A SECOND SITE (NOT A REWRITE OF THE OLD ONE)
+──────────────────────────────────────────────────────────────────
+The old superhero-ai page brought people in, but the first live session
+showed expectation drift — some people came expecting a "general
+mastermind", some expecting business chat, some expecting to watch.
+This page fixes that by stating the room's mechanics and the entry
+contract crystal clearly. The old page stays live as a v1 reference;
+this is v2 with sharper positioning and a different name.
+
+──────────────────────────────────────────────────────────────────
+THE OFFER
+──────────────────────────────────────────────────────────────────
+AI Vanguard — a small biweekly room of high-output operators who
+advance the front line together. Invite-only. Nothing to pay, and
+money can't get you in. The only currency is what you bring.
+
+The unit metaphor: a Roman vanguard. The person at the front spends
+themselves clearing path, building bridge, hacking through. As they
+tire, the next one jumps in front. The column moves at a pace no lone
+traveller could match.
+
+Each person clears something — a setup, a skill, a shortcut — and
+leaves the ladder in place for the rest of the group to climb up,
+then bushwhacks forward from there.
+
+──────────────────────────────────────────────────────────────────
+THE BIG REFRAMES (work into copy)
+──────────────────────────────────────────────────────────────────
+1. WE ARE NOT PROGRAMMERS. We are architects directing AI employees.
+   Most "anti-tech" entrepreneurs miss that the tech IS the business
+   now. AI is your team — the question is how good a CEO you are.
+
+2. THE WINDOW. This year is arbitrage — people still pay pre-AI
+   prices for websites, apps, content, anything we can now ship in
+   hours. Next year is the age of insane-custom impossible things,
+   stuff nobody can even visualise yet. We want to be at the front
+   of THAT wave, not catching up to this one.
+
+3. THE REAL CURRENCY. Money filters lower-tier rooms. Time and energy
+   filter higher-tier rooms. You're already wealthy in money compared
+   to the people who'd pay $5k for a course — but your time and your
+   creative energy are finite. So is ours. The question is whether
+   this room earns those.
+
+4. ALONE vs WITH THE COLUMN. Solo, getting your AI stack right is
+   ~3 months of head-scratching. With the shortcuts already laid down
+   by the group, a high-energy operator can have the base set up in
+   a few days and be fully caught up in 1–2 weeks. Then they start
+   bushwhacking in front for the rest.
+
+──────────────────────────────────────────────────────────────────
+WHAT MEMBERS ACTUALLY SHARE (concrete proof — describe, don't link)
+──────────────────────────────────────────────────────────────────
+- Lead Hunter — one-click local-business lead generator deployed to
+  Vercel, finds ready-to-sign leads with SERPAPI
+- Web Scraper — local Mac mini Playwright + Claude Max plan worker
+  that browses logged-in sites on a schedule and writes markdown
+  reports (no API cost — claude CLI)
+- Family Matters — private family social product, members-only
+  feed, video calls, photos
+- App Shelf — curated personal launcher + trusted-circle skill/app
+  store the group uses internally
+- Plus: chatnow, transfer-casa (AirDrop-parity P2P file transfer),
+  traffic-flow leaderboard game, Aha! children's learning games,
+  family-recipes voice-input cookbook, happy-weather sun-minutes
+  tracker, claude-todo phone inbox, kokoro-tts (local voice),
+  custom claude skills (.md) for copywriting, app-building,
+  oversight, deployment
+- A growing library of skill.md files — drop one in and your Claude
+  hits the same standard as the person who built it
+
+──────────────────────────────────────────────────────────────────
+WHAT THIS IS *NOT* (directly counter first-session confusion)
+──────────────────────────────────────────────────────────────────
+- NOT a general business mastermind
+- NOT a place to lurk silently and absorb
+- NOT for people who want to be told what to do
+- NOT a sales pitch for a course or coaching upsell
+- NOT vague — every session is concrete: this is the setup I'm
+  running, this is what works, this is what failed, this is the
+  prompt, this is the output
+
+──────────────────────────────────────────────────────────────────
+HOW A MEETING ACTUALLY RUNS
+──────────────────────────────────────────────────────────────────
+- Biweekly Zoom
+- Show up 10–15 mins early to chat / catch up if you want
+- 90 minutes locked-in focus — concrete sharing only
+  (no chitchat during the locked block)
+- Stay as long as you want after for hangout / deep dives
+- Format: members show their actual setups, demos, prompts, skills
+- Group picks the best, standardises, then explores the next thing
+
+This means: a busy operator can show up, give and get 90 minutes
+of dense value, leave on schedule. People who want more hangout
+get it before or after.
+
+──────────────────────────────────────────────────────────────────
+WHO WE WANT
+──────────────────────────────────────────────────────────────────
+- High-output operators / entrepreneurs / builders
+- Generous by default — happy to give away the ladder
+- Big personality, no need to dominate or be the special boy
+- Excited to be surpassed by people who'll pull them up next
+- Specific, not vague — will show their actual setup
+- Big appetite for the cutting edge — want to be there NEXT year,
+  not catching up
+
+──────────────────────────────────────────────────────────────────
+WHO WE DON'T WANT
+──────────────────────────────────────────────────────────────────
+- Freeloaders / passive lurkers (will be removed)
+- People looking for a "guru" to follow
+- People who can't share concrete examples
+- "Anti-tech" entrepreneurs who think this is beneath them
+- People who'd rather brag than ship
+
+──────────────────────────────────────────────────────────────────
+TONE / VOICE
+──────────────────────────────────────────────────────────────────
+- Direct response, Kennedy / Kern / Hormozi register
+- Confident but not pushy — they're being shown a real choice
+- Specific over vague — real apps, real cadence, real entry rules
+- "This is what the room is. Decide if it's worth your time."
+- High-quality sales pitch, because high achievers select with TIME
+  and ENERGY — both more precious than money
+
+──────────────────────────────────────────────────────────────────
+THE ONE CTA
+──────────────────────────────────────────────────────────────────
+"Yes — I'm In" / "Lock In My Spot"
+→ Web3Forms email submission (reuse superhero-ai key)
+→ Resend audience: new segment for AI Vanguard
+   (user will provide segment name on first send)
+→ Reply sends: confirmation + next-meeting Zoom link + group intro
+
+──────────────────────────────────────────────────────────────────
+PALETTE (KEEP SUPERHERO-AI PALETTE — USER REQUEST)
+──────────────────────────────────────────────────────────────────
+Accent: #E63946 (vanguard red)
+Accent-dark: #B71C2A
+Gold: #FCD34D
+Cream base: #FFFBF5
+Warm: #FFF4E8
+Ink: #15151D
+Dark beats: #0F0F1A / #1A1A28 (max 2 dark sections)
+
+──────────────────────────────────────────────────────────────────
+MEETING SCHEDULE
+──────────────────────────────────────────────────────────────────
+Biweekly. Inherit anchor date from superhero-ai (Saturday
+2026-05-16 at 8pm UK time); JS auto-rolls forward to next
+meeting. ANCHOR_DATE constant — adjust there if needed.
+
+──────────────────────────────────────────────────────────────────
+HANDOFF NOTES (for user)
+──────────────────────────────────────────────────────────────────
+1. Web3Forms access key — reuse the one already in superhero-ai
+   (live key already in production). Replace YOUR_WEB3FORMS_ACCESS_KEY
+   placeholder before deploy. Tell Claude which Resend audience
+   segment to map this to.
+2. Confirm next-meeting date in ANCHOR_DATE — should match the
+   one running on superhero-ai or roll forward as needed.
+3. New domain TBD — slug ai-vanguard for Vercel; point a real
+   domain at it when chosen.
+4. Add/remove proof apps in "What we share" section as the
+   showcase rotates.
