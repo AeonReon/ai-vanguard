@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AI Vanguard — The Invite-Only Column for Operators Building the Cutting Edge</title>
+  <meta name="description" content="A small biweekly column of high-output operators advancing the AI front line together. One person clears the path; the next sprints through and bushwhacks ahead. Nothing to pay. Money can't get you in. By invite only." />
+  <meta name="theme-color" content="#E63946" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #E63946;
+      --accent-dark: #B71C2A;
+      --accent-soft: #FFE5E8;
+      --cream: #FFFBF5;
+      --warm: #FFF4E8;
+      --warm-deep: #FFE8D4;
+      --ink: #15151D;
+      --ink-soft: #5A5A6A;
+      --dark: #0F0F1A;
+      --dark-alt: #1A1A28;
+      --dark-text: #FFFBF5;
+      --gold: #FCD34D;
+      --gold-deep: #D9A91B;
+      --green: #25D366;
+      --border: rgba(21, 21, 29, 0.08);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+      --shadow-lg: 0 20px 60px rgba(230, 57, 70, 0.20);
+      --radius: 10px;
+      --radius-pill: 100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.15; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 800; }
+    h2 { font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 800; }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 700; }
+    p { font-size: clamp(1rem, 1.6vw, 1.15rem); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Pre-headline strip ─── */
+    .pre-strip {
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+    }
+    .pre-strip .accent { color: var(--gold); }
+    .pre-strip .strip-date { color: var(--gold); font-weight: 800; }
+    .pre-strip .strip-sep { opacity: 0.45; margin: 0 6px; }
+    @media (max-width: 600px) {
+      .pre-strip { font-size: 0.85rem; padding: 12px 16px; }
+      .pre-strip .strip-sep { display: none; }
+      .pre-strip .strip-line { display: block; }
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      background: var(--cream);
+      padding: 72px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+    }
+    .hero h1 { margin-bottom: 22px; }
+    .hero h1 .em { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+    .hero-cta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 18px 32px;
+      border-radius: var(--radius-pill);
+      border: 3px solid var(--accent-dark);
+      box-shadow: 0 6px 0 var(--accent-dark), 0 14px 30px rgba(230, 57, 70, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(2px);
+      box-shadow: 0 4px 0 var(--accent-dark), 0 8px 18px rgba(230, 57, 70, 0.35);
+    }
+    .btn-primary:active {
+      transform: translateY(6px);
+      box-shadow: 0 0px 0 var(--accent-dark), 0 4px 12px rgba(230, 57, 70, 0.3);
+    }
+    .btn-primary.large { font-size: 1.15rem; padding: 22px 40px; }
+    .hero-trust {
+      margin-top: 20px;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+    .hero-trust strong { color: var(--ink); }
+    .hero-image {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 4/5;
+      background: var(--warm);
+    }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.25) 100%);
+    }
+    .hero-image-tag {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(255, 251, 245, 0.95);
+      backdrop-filter: blur(6px);
+      padding: 12px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: var(--shadow-md);
+      z-index: 2;
+    }
+    .hero-image-tag::before {
+      content: '🔴';
+      margin-right: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ─── Countdown banner ─── */
+    .countdown-banner {
+      background: var(--warm);
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .countdown-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .countdown-cell {
+      background: var(--cream);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      padding: 28px 28px;
+      min-width: 120px;
+      box-shadow: 0 6px 0 var(--ink);
+    }
+    .countdown-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 4.5rem);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .countdown-unit {
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    @media (max-width: 600px) {
+      .countdown-grid { gap: 10px; }
+      .countdown-cell { padding: 18px 14px; min-width: 72px; border-width: 2px; border-radius: 14px; box-shadow: 0 4px 0 var(--ink); }
+      .countdown-num { font-size: 2.2rem; }
+      .countdown-unit { font-size: 0.7rem; margin-top: 6px; }
+    }
+    .countdown-times {
+      margin-top: 22px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 14px;
+      padding: 10px 18px;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+    .countdown-times strong {
+      color: var(--accent);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .countdown-times .dot {
+      color: var(--ink-soft);
+      opacity: 0.5;
+    }
+    @media (max-width: 480px) {
+      .countdown-times { font-size: 0.85rem; padding: 10px 14px; }
+      .countdown-times .dot { display: none; }
+    }
+    .countdown-meta {
+      margin-top: 18px;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ─── Generic section ─── */
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
+    .section-cream { background: var(--cream); }
+    .section-warm { background: var(--warm); }
+    .section-warm-deep { background: var(--warm-deep); }
+    .section-dark {
+      background: var(--dark);
+      color: var(--dark-text);
+    }
+    .section-dark h2, .section-dark h3 { color: var(--dark-text); }
+    .section-dark p { color: rgba(255, 251, 245, 0.85); }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .section-dark .section-eyebrow { color: var(--gold); }
+    .section h2 { margin-bottom: 22px; }
+    .section-lede {
+      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+      color: var(--ink-soft);
+      margin-bottom: 36px;
+      max-width: 720px;
+    }
+    .section-dark .section-lede { color: rgba(255, 251, 245, 0.78); }
+
+    .section-text-center { text-align: center; }
+    .section-text-center .section-lede { margin-left: auto; margin-right: auto; }
+
+    /* ─── Testimonials ─── */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+      margin-top: 44px;
+    }
+    .test-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .section-warm .test-card { background: var(--cream); }
+    .test-stars {
+      color: var(--gold-deep);
+      font-size: 1rem;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+    }
+    .test-quote {
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--ink);
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .test-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .test-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+    .test-role {
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+    }
+
+    /* ─── Two-col / problem section ─── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .two-col.reverse .col-text { order: 2; }
+    .two-col.reverse .col-img { order: 1; }
+    .col-img {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow-md);
+    }
+    .col-img img { width: 100%; height: 100%; object-fit: cover; }
+    .body-text p { margin-bottom: 16px; font-size: 1.05rem; line-height: 1.7; }
+    .body-text strong { color: var(--accent); font-weight: 700; }
+    .section-dark .body-text strong { color: var(--gold); }
+
+    /* ─── Outcome cards ─── */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 44px;
+    }
+    .outcome-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s;
+      text-align: left;
+    }
+    .outcome-card:hover { transform: translateY(-4px); }
+    .outcome-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .outcome-body { padding: 22px 24px 28px; }
+    .outcome-body h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .outcome-body p { font-size: 0.98rem; color: var(--ink-soft); }
+
+    /* ─── Wins / project pills ─── */
+    .wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 38px;
+    }
+    .win-pill {
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      padding: 0 0 22px;
+      box-shadow: 0 4px 0 var(--ink);
+      transition: transform 0.15s, box-shadow 0.15s;
+      overflow: hidden;
+      text-align: left;
+    }
+    .win-pill:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); }
+    .win-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+    }
+    .win-body { padding: 18px 22px 0; }
+    .win-pill h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .win-pill p { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+
+    /* ─── "What this is NOT" grid ─── */
+    .not-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+      text-align: left;
+    }
+    .not-card {
+      background: var(--cream);
+      border: 2px solid rgba(21, 21, 29, 0.12);
+      border-radius: 16px;
+      padding: 26px 24px 28px;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .not-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 22px rgba(230, 57, 70, 0.12);
+    }
+    .not-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--accent-dark);
+      margin-bottom: 14px;
+    }
+    .not-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 12px;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .not-card p {
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin: 0;
+    }
+    @media (max-width: 900px) {
+      .not-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .not-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Two-paths comparison ─── */
+    .two-paths-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 44px;
+      text-align: left;
+    }
+    .path-card {
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .path-card:hover { transform: translateY(-4px); }
+    .path-card--alone {
+      background: var(--cream);
+      border: 2px solid rgba(21, 21, 29, 0.18);
+      box-shadow: 0 4px 0 rgba(21, 21, 29, 0.18);
+    }
+    .path-card--together {
+      background: var(--cream);
+      border: 2px solid var(--accent);
+      box-shadow: 0 6px 0 var(--accent), 0 14px 30px rgba(230, 57, 70, 0.18);
+    }
+    .path-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.85);
+    }
+    .path-card--together .path-img { filter: none; }
+    .path-body { padding: 26px 28px 30px; }
+    .path-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 14px;
+    }
+    .path-tag--alone {
+      background: rgba(21, 21, 29, 0.08);
+      color: var(--ink-soft);
+    }
+    .path-tag--together {
+      background: var(--accent);
+      color: white;
+    }
+    .path-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .path-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .path-list li {
+      padding: 8px 0 8px 24px;
+      position: relative;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .path-card--alone .path-list li::before {
+      content: '×';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      color: rgba(21, 21, 29, 0.4);
+      font-weight: 800;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .path-card--together .path-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 2px;
+      top: 8px;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .path-card--together .path-list li { color: var(--ink); }
+
+    /* ─── Offer / logistics ─── */
+    .offer-box {
+      background: var(--cream);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      padding: 44px 40px;
+      box-shadow: 0 8px 0 var(--ink);
+      max-width: 740px;
+      margin: 36px auto 0;
+      text-align: left;
+    }
+    .offer-list {
+      list-style: none;
+      margin: 24px 0 32px;
+    }
+    .offer-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem;
+    }
+    .offer-list li:last-child { border-bottom: none; }
+    .offer-list .label {
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 130px;
+      flex-shrink: 0;
+    }
+
+    /* ─── Urgency block ─── */
+    .urgency-inner {
+      text-align: center;
+    }
+    .urgency-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 22px;
+      font-size: 0.95rem;
+    }
+    .urgency-stat::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 760px; margin: 44px auto 0; text-align: left; }
+    .faq-item {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .faq-item.open { box-shadow: var(--shadow-md); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 22px 26px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: var(--cream);
+    }
+    .faq-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 800;
+      transition: transform 0.2s;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 800px; }
+    .faq-a-inner {
+      padding: 4px 26px 24px;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    /* ─── Final CTA ─── */
+    .final-cta {
+      text-align: center;
+    }
+    .final-cta h2 { margin-bottom: 24px; }
+    .final-cta .lede {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: rgba(255, 251, 245, 0.85);
+      margin-bottom: 38px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-cta .btn-primary { background: var(--gold); color: var(--ink); border-color: var(--gold-deep); box-shadow: 0 6px 0 var(--gold-deep), 0 14px 30px rgba(252, 211, 77, 0.35); }
+    .final-cta .btn-primary:hover { box-shadow: 0 4px 0 var(--gold-deep), 0 8px 18px rgba(252, 211, 77, 0.4); }
+
+    /* ─── Sign-up form ─── */
+    .signup-form {
+      max-width: 520px;
+      margin: 32px auto 0;
+      background: var(--cream);
+      border: 3px solid var(--ink);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 0 var(--ink);
+      text-align: left;
+    }
+    .signup-form h3 {
+      text-align: center;
+      color: var(--ink);
+      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .form-field { margin-bottom: 14px; }
+    .form-field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--ink);
+      background: white;
+      transition: border-color 0.15s;
+      resize: vertical;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px;
+      border-radius: var(--radius-pill);
+      border: 3px solid var(--accent-dark);
+      box-shadow: 0 4px 0 var(--accent-dark);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--accent-dark); }
+    .form-submit.success { background: var(--green); border-color: #1AAF54; box-shadow: 0 4px 0 #1AAF54; }
+    .form-success-msg {
+      text-align: center;
+      padding: 8px 4px 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      animation: success-fade-in 0.5s ease-out;
+    }
+    @keyframes success-fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-success-msg .check {
+      display: inline-block;
+      width: 64px; height: 64px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      line-height: 64px;
+      font-size: 2rem;
+      margin-bottom: 16px;
+      box-shadow: 0 6px 0 #1AAF54, 0 12px 24px rgba(37, 211, 102, 0.25);
+      animation: success-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes success-pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+    .form-success-msg h3 {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-size: 1.8rem !important;
+      font-weight: 800 !important;
+      margin: 0 0 6px !important;
+      color: var(--ink) !important;
+      line-height: 1.15;
+    }
+    .form-success-msg .success-lead {
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 600;
+      margin: 6px 0 22px;
+    }
+    .form-success-msg .success-steps {
+      text-align: left;
+      list-style: none;
+      counter-reset: success-step;
+      padding: 0;
+      margin: 0 0 22px;
+    }
+    .form-success-msg .success-steps li {
+      counter-increment: success-step;
+      position: relative;
+      padding: 12px 0 12px 48px;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-success-msg .success-steps li:last-child {
+      border-bottom: none;
+    }
+    .form-success-msg .success-steps li::before {
+      content: counter(success-step);
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 32px;
+      height: 32px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 800;
+      font-size: 1rem;
+      line-height: 32px;
+      text-align: center;
+    }
+    .form-success-msg .success-steps li strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .form-success-msg .success-note {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      font-weight: 500;
+      margin: 0;
+      font-style: italic;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .form-fine {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+      margin-top: 14px;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      padding: 44px 24px;
+      text-align: center;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+    .footer a { color: var(--ink-soft); text-decoration: underline; }
+
+    /* ─── Fade-up animations (progressive enhancement) ─── */
+    .fade-up { opacity: 1; transform: translateY(0); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.will-animate { opacity: 0; transform: translateY(30px); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 860px) {
+      .hero { padding: 48px 0 40px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .hero-image { aspect-ratio: 4/3; max-height: 400px; }
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+      .two-col.reverse .col-text { order: 1; }
+      .two-col.reverse .col-img { order: 2; }
+      .col-img { aspect-ratio: 4/3; max-height: 380px; }
+      .section { padding: 60px 0; }
+      .countdown-cell { min-width: 70px; padding: 14px 12px; }
+      .offer-box { padding: 32px 24px; }
+      .pre-strip { font-size: 0.82rem; }
+      .offer-list .label { min-width: 100px; }
+      .two-paths-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ PRE-HEADLINE STRIP ═══════════════ -->
+<div class="pre-strip">
+  <span class="strip-line">⚡ Next column meeting: <span class="strip-date" id="strip-date">—</span></span><span class="strip-sep">·</span><span class="strip-line">9am London / 10am Madrid / 11am Bucharest</span><span class="strip-sep">·</span><span class="strip-line">in <span id="strip-countdown">—</span></span>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-eyebrow">Invite-only · For operators who refuse to be a year late to anything</span>
+        <h1>The <span class="em">AI Vanguard.</span></h1>
+        <p class="hero-sub">A small biweekly column of high-output operators advancing the AI front line together — Roman-style. One person spends themselves clearing the path. The next jumps in front and bushwhacks ahead. Nobody walks slow. Nobody walks alone. <strong>Nothing to pay. And money can't get you in.</strong></p>
+        <div class="hero-cta-row">
+          <a href="#signup" class="btn-primary">Yes — I'm In</a>
+        </div>
+        <div class="hero-trust">Next column meeting: <strong id="event-date">—</strong> · 9am London · 10am Madrid · 11am Bucharest · 90 minutes locked focus · Invite only.</div>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero.png" alt="A small column of operators advancing the AI front line together" loading="eager" />
+        <div class="hero-image-tag">Live · Invite only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ COUNTDOWN BANNER ═══════════════ -->
+<section class="countdown-banner">
+  <div class="container">
+    <div class="countdown-label">Next column meeting starts in</div>
+    <div class="countdown-grid" id="countdown">
+      <div class="countdown-cell"><div class="countdown-num" id="cd-days">—</div><div class="countdown-unit">Days</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-hours">—</div><div class="countdown-unit">Hours</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-mins">—</div><div class="countdown-unit">Minutes</div></div>
+      <div class="countdown-cell"><div class="countdown-num" id="cd-secs">—</div><div class="countdown-unit">Seconds</div></div>
+    </div>
+    <div class="countdown-times">
+      <span><strong>9:00</strong> London</span>
+      <span class="dot">·</span>
+      <span><strong>10:00</strong> Madrid</span>
+      <span class="dot">·</span>
+      <span><strong>11:00</strong> Bucharest</span>
+    </div>
+    <p class="countdown-meta">Biweekly. 90 minutes of locked focus, with optional hangout on either side. Show up early to chat. Lock in for the 90. Stay late if you want.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ WHAT WE ALREADY SHARE ═══════════════ -->
+<section class="section section-warm-deep section-text-center">
+  <div class="container">
+    <span class="section-eyebrow">Already in the kit bag</span>
+    <h2 class="fade-up">The ladders already laid down.</h2>
+    <p class="section-lede fade-up">When you join the column, you don't start at the back of the wood with a machete. You start with the apps, skills and shortcuts members have already shipped. One prompt, your version. Below: a few of the things waiting on the shelf — described, not linked, so they don't get hammered by strangers.</p>
+    <div class="outcomes-grid">
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="images/build-a-team-of-super-agents.png" alt="Lead Hunter — one-click local-business lead generator" loading="lazy" />
+        <div class="outcome-body">
+          <h3>Lead Hunter</h3>
+          <p>One-click local-business lead finder. Tap a town, tap a niche — it surfaces ready-to-sign businesses with full contact info, pushes them into a pipeline, and gets you out of the "how do I find leads" loop forever. Deployed, in use, getting members paid right now.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=70" alt="Web Scraper — a personal research agent browsing while you sleep" loading="lazy" />
+        <div class="outcome-body">
+          <h3>Web Scraper</h3>
+          <p>Your own personal research agent. Drives a logged-in browser on a schedule, lifts the pages you care about, runs them through Claude on the Max plan (no API bill), and hands you a clean markdown report each morning. The "I'll just keep an eye on X and Y" tab habit — gone.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="images/jarvis.jpg" alt="Family Matters — your own private family social product" loading="lazy" />
+        <div class="outcome-body">
+          <h3>Family Matters</h3>
+          <p>A private social product just for the family — feed, photos, video calls, shared moments — owned by you, running on your own kit. The bits Facebook and WhatsApp do, without the bits they also do. One member ships it for theirs; the rest of the column gets the recipe.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="images/whatever-drops-next.png" alt="App Shelf — curated personal launcher and trusted-circle store" loading="lazy" />
+        <div class="outcome-body">
+          <h3>App Shelf</h3>
+          <p>The column's internal app store. Members drop their finished web apps and Claude skills here. Anyone in the column installs them in one tap. No App Store gatekeepers, no payment, no faff — just useful things, shared instantly between people who trust each other.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="images/nobodys-the-guru.avif" alt="Custom Claude skills library — drop-in expertise files" loading="lazy" />
+        <div class="outcome-body">
+          <h3>The Skills Library</h3>
+          <p>Drop-in <code>skill.md</code> files for app-building, copywriting, deployment, oversight, research. Hand one to your Claude and it hits the same standard as the member who built it. The thing that takes months of trial and error becomes a single file you install in five seconds.</p>
+        </div>
+      </div>
+      <div class="outcome-card fade-up">
+        <img class="outcome-img" src="images/saas-bills.png" alt="Personal Jarvis — your own voice-controlled AI wired into car and home" loading="lazy" />
+        <div class="outcome-body">
+          <h3>Personal Jarvis</h3>
+          <p>A custom Claude wired into your home, your car, your phone. Voice in, voice out, local where it can be. Knows your projects, your contacts, your day. The thing every Marvel fan has wanted for fifteen years — finally a Tuesday evening project, not a science-fiction fantasy.</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 38px; max-width: 720px; margin-left: auto; margin-right: auto; font-size: 1.05rem; color: var(--ink-soft);">Plus: chatnow, transfer-casa (private AirDrop-parity), Aha! learning games for the kids, family-recipes voice cookbook, happy-weather, claude-todo phone inbox, kokoro-tts… and whatever drops next. The shelf grows every fortnight.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ WHY YOU GOT THE INVITE ═══════════════ -->
+<section class="section section-cream section-text-center">
+  <div class="container-narrow">
+    <span class="section-eyebrow">Worth saying</span>
+    <h2 class="fade-up">You got the invite for a reason.</h2>
+    <div class="body-text" style="margin-top: 22px; text-align: left; font-size: 1.08rem;">
+      <p>You're already the kind of person who sees things early — the property thing, the e-commerce thing, the crypto thing. You don't show up two years late asking what everyone's talking about. <strong>You're the one who emails the others.</strong></p>
+      <p>This is that email. Someone in the column already vouched for you and said the words: <em>"they belong here."</em></p>
+      <p>That's the door. What you do with it is up to you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ THE BIG REFRAME — ARCHITECTS, NOT PROGRAMMERS ═══════════════ -->
+<section class="section section-warm">
+  <div class="container">
+    <div class="two-col reverse">
+      <div class="col-text body-text">
+        <span class="section-eyebrow">The reframe almost everyone is missing</span>
+        <h2>We are not programmers. We are architects directing AI employees.</h2>
+        <p>A lot of entrepreneurs are still saying <em>"I'm not into the tech, I'd rather focus on the business."</em> That sentence used to make sense. <strong>It doesn't any more.</strong></p>
+        <p>The tech <em>is</em> the business now. AI is your team. You're not sitting down to be a programmer — you're sitting down to <strong>brief the largest, most talented team you've ever managed,</strong> at a speed no human team could match. The question isn't whether you can code. It's whether you can describe what you want clearly and decide what good looks like.</p>
+        <p>That's the job. <strong>CEO of a hundred AI employees.</strong> Architect of a mission. If you can run a business, you can run this. The column is full of people teaching each other exactly how.</p>
+      </div>
+      <div class="col-img">
+        <img src="images/nobodys-the-guru.avif" alt="Operators directing AI employees — architect of a hundred-strong team" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DARK SECTION — THE ROMAN VANGUARD ═══════════════ -->
+<section class="section section-dark section-text-center">
+  <div class="container-narrow">
+    <span class="section-eyebrow">Why we call it a vanguard</span>
+    <h2>One clears the path. The next sprints through. Then bushwhacks ahead.</h2>
+    <div class="body-text" style="margin-top: 22px; text-align: left;">
+      <p>Think about how the Roman army actually moved through hostile country. The vanguard at the front spent themselves — felling trees, digging through, building bridges across rivers. <strong>Brutal, exhausting work.</strong> As one man tired, the next jumped in front. The column never slowed. The whole army arrived together, fast.</p>
+      <p>Now picture ten people learning AI alone. Ten machetes. Ten people hacking through the same wood, in parallel, in the dark, never seeing what anyone else found. <strong>Slow. Exhausting. Lonely. Stupid.</strong></p>
+      <p>The column does the opposite. One member spends three weekends cracking a workflow, a stack, a skill — then drops the ladder for everyone else. The next member runs through the cleared path in hours instead of weeks and bushwhacks <em>ahead</em>. Then the one behind catches up and does the same for the next thing. <strong>Everyone moves at the front-line pace. Nobody walks alone.</strong></p>
+    </div>
+    <div style="margin-top: 38px;">
+      <a href="#signup" class="btn-primary">Yes — I'm In</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ TWO PATHS — ALONE VS COLUMN ═══════════════ -->
+<section class="section section-cream section-text-center">
+  <div class="container">
+    <span class="section-eyebrow">The choice, basically</span>
+    <h2 class="fade-up">Three months alone. Or one or two weeks in the column.</h2>
+    <p class="section-lede fade-up">Same calendar. Same person. Wildly different finish lines.</p>
+    <div class="two-paths-grid">
+      <div class="path-card path-card--alone fade-up">
+        <img class="path-img" src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=700&q=70" alt="Bushwhacking alone — late nights, long threads, slow progress in the dark" loading="lazy" />
+        <div class="path-body">
+          <div class="path-tag path-tag--alone">Bushwhacking alone</div>
+          <h3>~3 months to a working setup. Then it's already moved.</h3>
+          <ul class="path-list">
+            <li>You burn three weekends on a stack — only to discover the <em>actually</em> good workflow was the one you skipped past on day one.</li>
+            <li>You don't know what you don't know. Most of the real wins quietly pass you by.</li>
+            <li>By the time your setup is solid, the front line has moved again. You're catching up to where the column was a month ago.</li>
+            <li>Decisions made on hope and the loudest YouTube guy.</li>
+            <li>And you did it all in the dark, surrounded by Reddit. Cool.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="path-card path-card--together fade-up">
+        <img class="path-img" src="images/hunting-with-the-room.jpg" alt="Marching with the column — sprinting through cleared path, then bushwhacking ahead" loading="lazy" />
+        <div class="path-body">
+          <div class="path-tag path-tag--together">Marching with the column</div>
+          <h3>Base setup in days. Fully caught up in 1–2 weeks. Then ahead.</h3>
+          <ul class="path-list">
+            <li>You start with the ladders already laid — apps, skills, prompts, working configs the column has already cracked.</li>
+            <li>What took someone else three weekends takes you an hour because you sprint through their cleared path.</li>
+            <li>A high-energy operator goes from cold start to "fully caught up" in ~1–2 weeks of committed work.</li>
+            <li>Once caught up, you bushwhack <em>in front</em> — and the next person catches up off your work.</li>
+            <li>Plus: you're moving with people you genuinely enjoy. Which is the whole point.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 38px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 1.08rem; color: var(--ink); font-weight: 600;">Same time on the calendar. Wildly different finish lines.</p>
+    <div style="margin-top: 30px;"><a href="#signup" class="btn-primary">Yes — I'm In</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════ THE OFFER ═══════════════ -->
+<section class="section section-warm-deep section-text-center">
+  <div class="container-narrow">
+    <span class="section-eyebrow">The whole deal, in one box</span>
+    <h2 class="fade-up">A biweekly Zoom. 90 minutes of locked focus. Hangout on either side.</h2>
+    <div class="offer-box fade-up">
+      <ul class="offer-list">
+        <li><span class="label">When:</span><span>Biweekly · Next column meeting <strong id="offer-date">—</strong> · 9am London / 10am Madrid / 11am Bucharest</span></li>
+        <li><span class="label">Where:</span><span>Zoom (link the day before)</span></li>
+        <li><span class="label">Rhythm:</span><span>Arrive 10–15 mins early to chat → <strong>90 minutes of locked focus</strong> → stay as long as you want after for hangout. Busy week? Come for the 90, leave on the dot.</span></li>
+        <li><span class="label">Format:</span><span>Concrete only. Show your actual setup. Demo the prompt. Walk through what worked, what failed, what you'd do differently. No vagueness, no "I've been thinking about getting into AI."</span></li>
+        <li><span class="label">Between meetings:</span><span>Group chat. Drop wins and questions as they happen. The 90 minutes is the heartbeat, not the only beat.</span></li>
+        <li><span class="label">Who it's for:</span><span>High-output operators who want to be at the front of next year, not catching up to this one.</span></li>
+        <li><span class="label">Cost:</span><span><strong>Nothing to pay. Money can't get you in either.</strong> The currency is what you bring to the column.</span></li>
+      </ul>
+      <p style="font-size: 1.05rem; color: var(--ink-soft); margin: 0;">No upsell. No "module 1." No homework outside the 90 minutes. <strong>Just a small column of operators sprinting at the front line together — and the 90-minute window where everyone shows their work.</strong></p>
+      <div style="margin-top: 28px; text-align: center;"><a href="#signup" class="btn-primary large">Yes — I'm In</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WHAT THIS IS NOT ═══════════════ -->
+<section class="section section-cream section-text-center">
+  <div class="container">
+    <span class="section-eyebrow">So we don't waste each other's time</span>
+    <h2 class="fade-up">What the column is <em>not</em>.</h2>
+    <p class="section-lede fade-up">First session, a few people showed up expecting one of these. They came away disappointed. We don't want that to happen to you, so here it is in plain English.</p>
+    <div class="not-grid">
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>A general business mastermind.</h3>
+        <p>This isn't "let's talk about funnels and offers and Q4 planning." It's specifically about being at the AI front line and bringing the rest of your business along with it.</p>
+      </div>
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>A place to lurk silently.</h3>
+        <p>Members who only take and never share don't last. Show your setup, show your prompts, show what failed. Everyone's a contributor or no one is.</p>
+      </div>
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>A guru with followers.</h3>
+        <p>There's no expert at the front. Anyone claiming to be the master of AI right now is selling something. We run experiments and compare notes — that's it.</p>
+      </div>
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>Vague, theoretical or aspirational.</h3>
+        <p>No "I've been thinking about getting into AI." No "what should I learn first?" We share specific setups, specific prompts, specific outputs. The group picks the best and standardises on it.</p>
+      </div>
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>A funnel for a course or coaching.</h3>
+        <p>Nothing is for sale here. Ever. No upsell at the end of the 90 minutes. No "next level" you can pay to access. This is the level.</p>
+      </div>
+      <div class="not-card fade-up">
+        <div class="not-tag">Not</div>
+        <h3>Endless chitchat.</h3>
+        <p>The 90 minutes is locked focus — concrete sharing only. Early arrivals and late stayers can chat as long as they want. That structure is what protects busy operators' time.</p>
+      </div>
+    </div>
+    <div style="margin-top: 40px;"><a href="#signup" class="btn-primary">Yes — I'm In</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════ URGENCY BLOCK (DARK) — THE REAL CURRENCY ═══════════════ -->
+<section class="section section-dark urgency-inner">
+  <div class="container">
+    <div class="urgency-stat">The real cost · And why money can't pay it</div>
+    <h2 class="fade-up">The currency in this column is your time and your energy.</h2>
+    <p class="section-lede fade-up" style="margin-left:auto; margin-right:auto;">Lower-tier rooms filter with money — pay £5,000 and you're in. Higher-tier rooms filter with something rarer: <strong>your time and your creative energy.</strong> You're already wealthier in money than the people paying for courses. Your time and your focus are the things you don't get back. So is ours. The 90 minutes a fortnight, the energy to show your real work, the generosity to leave the ladder behind — that's the cost. <strong>The only question is whether the column earns it.</strong></p>
+    <div class="countdown-grid" id="countdown-2" style="margin-top: 32px;">
+      <div class="countdown-cell" style="background: var(--dark-alt); border-color: var(--gold); color: var(--dark-text);"><div class="countdown-num" id="cd2-days" style="color: var(--gold);">—</div><div class="countdown-unit" style="color: rgba(255,251,245,0.6);">Days</div></div>
+      <div class="countdown-cell" style="background: var(--dark-alt); border-color: var(--gold); color: var(--dark-text);"><div class="countdown-num" id="cd2-hours" style="color: var(--gold);">—</div><div class="countdown-unit" style="color: rgba(255,251,245,0.6);">Hours</div></div>
+      <div class="countdown-cell" style="background: var(--dark-alt); border-color: var(--gold); color: var(--dark-text);"><div class="countdown-num" id="cd2-mins" style="color: var(--gold);">—</div><div class="countdown-unit" style="color: rgba(255,251,245,0.6);">Minutes</div></div>
+      <div class="countdown-cell" style="background: var(--dark-alt); border-color: var(--gold); color: var(--dark-text);"><div class="countdown-num" id="cd2-secs" style="color: var(--gold);">—</div><div class="countdown-unit" style="color: rgba(255,251,245,0.6);">Seconds</div></div>
+    </div>
+    <div style="margin-top: 38px;"><a href="#signup" class="btn-primary large">Yes — I'm In</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="section section-cream section-text-center">
+  <div class="container">
+    <span class="section-eyebrow">Honest questions, honest answers</span>
+    <h2 class="fade-up">Things people ask before they say yes.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">I'm busy. Is this another thing on my list?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Honestly, it's the opposite. 90 minutes every two weeks, locked focus, then you're out. No homework, no pre-reads, no follow-ups. Skip a fortnight when life's mad — nobody keeps score. The genuine claim is that <strong>this is a net time saver:</strong> what someone in the column hands you in a 90-minute window saves you the three weekends of bushwhacking it would have taken to find on your own.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is there a guru running this?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. There can't be. The actual world experts on AI right now are <strong>two weeks ahead of you, not two years.</strong> The game has reset. The column works because everyone runs their own experiments and pools the results — which is genuinely more useful than following any one person's blog. Anyone telling you they've got the master plan right now is selling something.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How technical do I need to be?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">You don't need to be a programmer — and that's the whole point. The column is full of operators who learned just enough technical to brief AI properly and direct outcomes. <strong>You're a CEO of AI employees, not a developer.</strong> If you can run a business, you can run this. Members happily walk newcomers through anything.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Is there a fee?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. <strong>And money can't get you in either.</strong> This isn't a "free mastermind you stumbled across on Facebook." Personal invite only. The cost is your time, your energy, and what you're willing to bring to the column.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Why is it invite only?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Because the column is the whole product. The minute it becomes a public sign-up, the average drops, the conversation gets shallower, the people shipping cool stuff stop showing up. We've all been in "communities" where the signal-to-noise ratio quietly killed the magic. Not letting that happen here. Small, vetted, generous. That's the rule.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What actually happens in the 90 minutes?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Concrete sharing — that's the rule. Members demo their actual setup, show the prompt that worked, walk through what failed, hand over the skill file or the workflow. Then the group picks what to standardise on and what to try next. <strong>No vagueness, no "I've been thinking about AI lately,"</strong> no slide decks. Show the real thing.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What about chatting and hangout?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">All of that happens <strong>around</strong> the 90, not inside it. Turn up 10–15 mins early and chat with whoever's there. Stay as long as you want after for deep dives, banter, going down rabbit holes. A busy operator can lock in for 90, get/give a fortnight's value, leave on the dot. The structure protects everyone's time.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What if I don't have anything ready to share that fortnight?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Fine for any individual fortnight — sometimes you've been heads-down, sometimes a launch ate your week. But <strong>over a few months, every member shares.</strong> The pattern we don't keep is "shows up, takes, never gives." If you find yourself in pure-receive mode session after session, the column isn't for you (and you'll feel it before we have to say it).</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Are meetings recorded?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sometimes, if the column agrees and the speaker is happy. Often the best stuff is off-the-record by design — people share things they wouldn't put on a public YouTube. Default is "in the column, stays in the column" unless we agree otherwise.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I suggest a friend who'd be a great fit?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — and it's how the column grows. Worth being upfront though: <strong>not everyone gets in.</strong> After you suggest someone we'll have a friendly chat with them — call it an interview if you like — to make sure they fit. The bar is: would the existing column genuinely enjoy moving with this person, and will they bring as much as they take? If yes, in. If we're not sure, we wait for an obvious yes. Nothing personal — just protecting what makes the column work.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Can I get kicked out?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. If someone consistently takes and never gives, dominates the column without contributing, or just isn't engaging with the work — they're a friendly conversation away from being lifted out. Not punitive, just honest. <strong>The column moves at front-line pace. Dead weight slows everyone down.</strong></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">What if I miss a few meetings?<span class="faq-toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Nothing happens. Come back when you can. Members getting the most out of this treat it as a fortnightly drumbeat, not something they're trying to be perfect about. Show up when life allows, drop in when something cool drops, otherwise just live.</div></div>
+      </div>
+    </div>
+    <div style="margin-top: 44px;"><a href="#signup" class="btn-primary">Yes — I'm In</a></div>
+  </div>
+</section>
+
+<!-- ═══════════════ FINAL CTA + SIGNUP FORM (DARK) ═══════════════ -->
+<section class="section section-dark final-cta" id="signup">
+  <div class="container">
+    <span class="section-eyebrow">The whole page, in one sentence</span>
+
+    <!-- Mode A: invite confirm — shown when ?i=valid-token in the URL -->
+    <div id="invite-mode" style="display:none;">
+      <h2 class="fade-up" id="invite-headline">Someone in the column already vouched for you. Lock your spot.</h2>
+      <p class="lede fade-up">Drop your name. We'll send the link for the next meeting. See you in the column.</p>
+
+      <form class="signup-form" id="signupForm" autocomplete="on">
+        <h3>Make it official</h3>
+        <input type="hidden" id="signup-token" name="token" value="" />
+        <input type="hidden" name="source" value="ai-vanguard" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="form-field">
+          <label for="signup-name">First name</label>
+          <input type="text" id="signup-name" name="name" required autocomplete="given-name" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label for="signup-email">Email</label>
+          <input type="email" id="signup-email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label for="signup-invitedby">Which member invited you? <span style="opacity:0.6;font-weight:400;">(optional)</span></label>
+          <input type="text" id="signup-invitedby" name="invited_by" autocomplete="off" placeholder="Their first name will do" />
+        </div>
+        <button type="submit" class="form-submit" id="formSubmit">Yes — I'm In</button>
+        <p class="form-fine">Nothing to pay · Invite only · We'll only email about the column.</p>
+      </form>
+    </div>
+
+    <!-- Mode B: apply — shown when no token, invalid token, or used token -->
+    <div id="apply-mode" style="display:none;">
+      <h2 class="fade-up">Didn't get a personal invite link? Apply to be considered.</h2>
+      <p class="lede fade-up">The column is invite only. If your link expired, was shared with you second-hand, or you found us on your own — tell us what you're shipping. We read every one.</p>
+
+      <form class="signup-form" id="applyForm" autocomplete="on">
+        <h3>Apply to join the column</h3>
+        <input type="hidden" name="source" value="ai-vanguard" />
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="form-field">
+          <label for="apply-name">First name</label>
+          <input type="text" id="apply-name" name="name" required autocomplete="given-name" placeholder="Your name" />
+        </div>
+        <div class="form-field">
+          <label for="apply-email">Email</label>
+          <input type="email" id="apply-email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label for="apply-building">What are you building right now?</label>
+          <textarea id="apply-building" name="building" rows="3" required placeholder="One or two specific things you're shipping or running at the cutting edge. Vague answers tell us this isn't the right room for you."></textarea>
+        </div>
+        <div class="form-field">
+          <label for="apply-why">What would you bring to the column? <span style="opacity:0.6;font-weight:400;">(optional)</span></label>
+          <textarea id="apply-why" name="why" rows="2" placeholder="A skill, a stack, a shortcut, a recipe — the kind of thing you'd happily hand to the rest of the column."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="applySubmit">Apply to march with us</button>
+        <p class="form-fine">Every application read personally. No mass list. No marketing.</p>
+      </form>
+    </div>
+
+    <!-- Loading skeleton shown while checking ?i= -->
+    <div id="loading-mode" style="text-align:center; padding: 40px 20px; color: rgba(255,255,255,0.6);">
+      <p>Checking your invite…</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 AI Vanguard · A small column of operators moving the front line together</p>
+  </div>
+</footer>
+
+<script>
+  // ═══════════════════════════════════════════════════════════════════
+  //  CONFIG — edit ONLY these constants to change the schedule
+  //  ANCHOR_DATE_STR = ISO calendar date (yyyy-mm-dd) of a known meeting
+  //  MEETING_HOUR_LONDON = local meeting hour in Europe/London (0-23)
+  //  INTERVAL_DAYS = cadence between meetings (14 = biweekly)
+  //  The countdown auto-rolls forward forever, DST-safe.
+  //  Time triple: London ⋅ Madrid (+1h) ⋅ Bucharest (+2h) — offsets hold year-round.
+  // ═══════════════════════════════════════════════════════════════════
+  const ANCHOR_DATE_STR = '2026-05-16';      // Saturday 16 May 2026 — first meeting
+  const MEETING_HOUR_LONDON = 9;             // 9am London = 10am Madrid = 11am Bucharest
+  const INTERVAL_DAYS = 14;
+
+  // ─── Compute "MEETING_HOUR_LONDON on yyyy-mm-dd, Europe/London time" as a real Date ───
+  function londonMeetingTime(yyyymmdd) {
+    const [y, m, d] = yyyymmdd.split('-').map(Number);
+    const probe = new Date(Date.UTC(y, m - 1, d, MEETING_HOUR_LONDON, 0, 0));
+    const londonHour = parseInt(probe.toLocaleString('en-GB', {
+      timeZone: 'Europe/London', hour: 'numeric', hour12: false
+    }), 10);
+    return new Date(probe.getTime() - (londonHour - MEETING_HOUR_LONDON) * 3600 * 1000);
+  }
+
+  // ─── Compute the next upcoming meeting from the anchor (DST-safe) ───
+  function nextMeetingDate() {
+    const now = new Date();
+    let cursor = londonMeetingTime(ANCHOR_DATE_STR);
+    if (cursor > now) return cursor;
+    const dayMs = 24 * 60 * 60 * 1000;
+    while (cursor <= now) {
+      const next = new Date(cursor.getTime() + INTERVAL_DAYS * dayMs);
+      const nextDateStr = next.toLocaleDateString('en-CA', { timeZone: 'Europe/London' });
+      cursor = londonMeetingTime(nextDateStr);
+    }
+    return cursor;
+  }
+  const NEXT_MEETING = nextMeetingDate();
+
+  // ─── Format the human-readable event date (long form + short for strip) ───
+  (function formatEventDate() {
+    const longOpts = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const shortOpts = { weekday: 'short', day: 'numeric', month: 'short' };
+    const long = NEXT_MEETING.toLocaleDateString('en-GB', longOpts);
+    const short = NEXT_MEETING.toLocaleDateString('en-GB', shortOpts);
+    document.querySelectorAll('#event-date, #offer-date').forEach(el => el.textContent = long);
+    const stripDate = document.getElementById('strip-date');
+    if (stripDate) stripDate.textContent = short;
+  })();
+
+  // ─── Live countdown (drives both visible countdowns + the strip) ───
+  let CURRENT_TARGET = NEXT_MEETING;
+  function updateCountdown() {
+    const now = new Date();
+    let diff = CURRENT_TARGET - now;
+    // If meeting passed mid-session, re-derive next from the (DST-safe) helper
+    if (diff <= 0) {
+      CURRENT_TARGET = nextMeetingDate();
+      diff = CURRENT_TARGET - now;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = String(v).padStart(2, '0'); };
+    set('cd-days', days); set('cd-hours', hours); set('cd-mins', mins); set('cd-secs', secs);
+    set('cd2-days', days); set('cd2-hours', hours); set('cd2-mins', mins); set('cd2-secs', secs);
+    const strip = document.getElementById('strip-countdown');
+    if (strip) strip.textContent = `${days}d ${hours}h ${mins}m`;
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ─── FAQ accordion ───
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !wasOpen);
+    });
+  });
+
+  // ─── Smooth scroll-up animations (progressive enhancement) ───
+  if ('IntersectionObserver' in window) {
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.add('will-animate'));
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -80px 0px', threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  }
+
+  // ─── Mode-aware signup: invite-confirm vs apply ───
+  const API_BASE = 'https://superhero.aiprofits.cc';
+
+  function showMode(mode) {
+    document.getElementById('loading-mode').style.display = (mode === 'loading') ? 'block' : 'none';
+    document.getElementById('invite-mode').style.display = (mode === 'invite') ? 'block' : 'none';
+    document.getElementById('apply-mode').style.display = (mode === 'apply') ? 'block' : 'none';
+  }
+
+  async function detectMode() {
+    const params = new URLSearchParams(window.location.search);
+
+    // Confirmation flow: ?confirm=<token> in URL → finalise the signup
+    const confirmToken = params.get('confirm');
+    if (confirmToken) {
+      await handleConfirmation(confirmToken);
+      return;
+    }
+
+    // Step 1: check site config — is invite required, or is the page open?
+    let requireInvite = false;
+    try {
+      const cfgRes = await fetch(`${API_BASE}/api/config`, { cache: 'no-store' });
+      const cfg = await cfgRes.json();
+      requireInvite = !!cfg.requireInvite;
+    } catch (err) {
+      // If config can't be reached, default to open (safer for visitors)
+      requireInvite = false;
+    }
+
+    const token = params.get('i');
+
+    // Open mode: just show the signup form, prefill if a token happens to be present
+    if (!requireInvite) {
+      if (token) {
+        try {
+          const res = await fetch(`${API_BASE}/api/check-invite/${encodeURIComponent(token)}`, { cache: 'no-store' });
+          const data = await res.json();
+          if (data.valid) {
+            document.getElementById('signup-token').value = token;
+            if (data.recipient_name) document.getElementById('signup-name').value = data.recipient_name;
+          }
+        } catch {}
+      }
+      showMode('invite');
+      return;
+    }
+
+    // Gated mode: invite required
+    if (!token) { showMode('apply'); return; }
+
+    showMode('loading');
+    try {
+      const res = await fetch(`${API_BASE}/api/check-invite/${encodeURIComponent(token)}`, { cache: 'no-store' });
+      const data = await res.json();
+      if (data.valid) {
+        document.getElementById('signup-token').value = token;
+        if (data.recipient_name) {
+          const headline = document.getElementById('invite-headline');
+          const firstName = data.recipient_name.split(' ')[0];
+          headline.textContent = `${firstName}, the column said yes. Lock your spot.`;
+          document.getElementById('signup-name').value = data.recipient_name;
+        }
+        showMode('invite');
+      } else {
+        showMode('apply');
+      }
+    } catch (err) {
+      showMode('apply');
+    }
+  }
+
+  async function handleConfirmation(token) {
+    showMode('loading');
+    try {
+      const res = await fetch(`${API_BASE}/api/confirm/${encodeURIComponent(token)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      });
+      const data = await res.json().catch(() => ({}));
+      // Show success/failure in the invite-mode area, but replace the form
+      const inviteSection = document.getElementById('invite-mode');
+      const applySection = document.getElementById('apply-mode');
+      applySection.style.display = 'none';
+      inviteSection.style.display = 'block';
+      document.getElementById('loading-mode').style.display = 'none';
+      const formContainer = document.getElementById('signupForm');
+      if (res.ok && data.success) {
+        const headline = document.getElementById('invite-headline');
+        const firstName = (data.name || '').split(' ')[0];
+        headline.textContent = data.alreadyConfirmed
+          ? `You were already in${firstName ? `, ${firstName}` : ''}.`
+          : `Confirmed${firstName ? `, ${firstName}` : ''}. You're in.`;
+        formContainer.innerHTML = `<div class="form-success-msg">
+          <span class="check">✓</span>
+          <h3>${data.alreadyConfirmed ? 'Already confirmed' : 'You’re in.'}</h3>
+          <p class="success-lead">Welcome to the column. Here's what happens next:</p>
+          <ol class="success-steps">
+            <li>Check your <strong>inbox</strong> for a fresh welcome email.</li>
+            <li>The <strong>day before each fortnightly column meeting</strong>, you'll get the join link.</li>
+            <li><strong>Show up, share, leave with what you came for.</strong> That's the whole drill.</li>
+          </ol>
+          <p class="success-note">See you at the front line.</p>
+        </div>`;
+      } else {
+        document.getElementById('invite-headline').textContent = 'This link is no longer valid.';
+        formContainer.innerHTML = `<div class="form-success-msg">
+          <h3>Couldn't confirm.</h3>
+          <p class="success-lead">${data.error || 'This confirmation link has expired or already been used.'}</p>
+          <p class="success-note">Refresh the page to sign up again, or get in touch and we'll sort it.</p>
+        </div>`;
+      }
+    } catch (e) {
+      showMode('apply');
+    }
+  }
+
+  detectMode();
+
+  // ─── Invite-confirm form submit ───
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) {
+    signupForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submit = document.getElementById('formSubmit');
+      submit.textContent = 'Sending…';
+      submit.disabled = true;
+      try {
+        const formData = new FormData(signupForm);
+        const payload = Object.fromEntries(formData);
+        const res = await fetch(`${API_BASE}/api/signup`, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          submit.textContent = 'Sent!';
+          submit.classList.add('success');
+          setTimeout(() => {
+            signupForm.innerHTML = `<div class="form-success-msg">
+              <span class="check">✉</span>
+              <h3>Check your inbox.</h3>
+              <p class="success-lead">We just sent you an email asking you to <strong>reply YES</strong> to lock in your spot.</p>
+              <ol class="success-steps">
+                <li><strong>Check your inbox AND spam folder</strong> for an email titled "Reply YES to confirm your spot".</li>
+                <li>If it's in spam, <strong>tap "Not spam"</strong> first — that one action trains your inbox so future column emails land cleanly.</li>
+                <li>Then just <strong>hit Reply and send the word YES</strong>. That's all we need.</li>
+              </ol>
+              <p class="success-note">Why a reply and not a click? A reply tells your email provider we're a real sender — guarantees the fortnightly join link reaches you. A click can't do that. No reply, no spot — only people who genuinely want in get the join links.</p>
+            </div>`;
+          }, 800);
+        } else if (data.inviteStatus) {
+          // Invite expired/used between page load and submit — bounce to apply
+          submit.textContent = 'This invite is no longer active';
+          setTimeout(() => showMode('apply'), 1200);
+        } else {
+          submit.textContent = data.error || 'Something went wrong — try again';
+          submit.disabled = false;
+        }
+      } catch (err) {
+        submit.textContent = 'Something went wrong — try again';
+        submit.disabled = false;
+      }
+    });
+  }
+
+  // ─── Apply form submit ───
+  const applyForm = document.getElementById('applyForm');
+  if (applyForm) {
+    applyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submit = document.getElementById('applySubmit');
+      submit.textContent = 'Sending…';
+      submit.disabled = true;
+      try {
+        const formData = new FormData(applyForm);
+        const payload = Object.fromEntries(formData);
+        const res = await fetch(`${API_BASE}/api/apply`, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          submit.textContent = 'Sent!';
+          submit.classList.add('success');
+          setTimeout(() => {
+            applyForm.innerHTML = `<div class="form-success-msg">
+              <span class="check">✓</span>
+              <h3>Got it.</h3>
+              <p class="success-lead">Application received. Here's what happens next:</p>
+              <ol class="success-steps">
+                <li>We <strong>read every application personally</strong> — usually within a week.</li>
+                <li>If it's a fit, you'll get a <strong>personal invite link by email</strong>.</li>
+                <li>If not right now, no hard feelings — we'll keep your details on file.</li>
+              </ol>
+              <p class="success-note">Thanks for putting yourself forward.</p>
+            </div>`;
+          }, 800);
+        } else {
+          submit.textContent = data.error || 'Something went wrong — try again';
+          submit.disabled = false;
+        }
+      } catch (err) {
+        submit.textContent = 'Something went wrong — try again';
+        submit.disabled = false;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
